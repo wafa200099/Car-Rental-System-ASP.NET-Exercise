@@ -1,0 +1,40 @@
+﻿@model List<Car>
+
+<h1>Available Cars</h1>
+
+<form method="get" action="@Url.Action("SearchCars", "Car")">
+    <label for="Location">Location:</label>
+    <input type="text" id="Location" name="Location" />
+
+    <label for="StartDate">Start Date:</label>
+    <input type="date" id="StartDate" name="StartDate" />
+
+    <label for="EndDate">End Date:</label>
+    <input type="date" id="EndDate" name="EndDate" />
+
+    <button type="submit">Search</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Year</th>
+            <th>Price Per Day</th>
+            <th>Available</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var car in Model)
+        {
+            <tr>
+                <td>@car.Make</td>
+                <td>@car.Model</td>
+                <td>@car.Year</td>
+                <td>@car.PricePerDay</td>
+                <td>@(car.IsAvailable ? "Yes" : "No")</td>
+            </tr>
+        }
+    </tbody>
+</table>

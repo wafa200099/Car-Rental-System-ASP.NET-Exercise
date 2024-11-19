@@ -1,0 +1,37 @@
+﻿@model User
+
+<form asp-action="SignUp" method="post">
+    <label for="FirstName">First Name</label>
+    <input type="text" id="FirstName" name="FirstName" required />
+
+    <label for="LastName">Last Name</label>
+    <input type="text" id="LastName" name="LastName" required />
+
+    <label for="Email">Email</label>
+    <input type="email" id="Email" name="Email" required />
+
+    <label for="Password">Password</label>
+    <input type="password" id="Password" name="Password" required />
+
+    <label for="ConfirmPassword">Confirm Password</label>
+    <input type="password" id="ConfirmPassword" name="ConfirmPassword" required />
+
+    <label for="PhoneNumber">Phone Number</label>
+    <input type="tel" id="PhoneNumber" name="PhoneNumber" required />
+
+    <label for="DateOfBirth">Date of Birth</label>
+    <input type="date" id="DateOfBirth" name="DateOfBirth" />
+
+    <label for="DriversLicenseNumber">Driver's License Number</label>
+    <input type="text" id="DriversLicenseNumber" name="DriversLicenseNumber" required />
+
+    <label for="Country">Country</label>
+    <select id="Country" name="CountryId" required>
+        @foreach (var country in ViewData["Countries"] as SelectList)
+        {
+            <option value="@country.Value">@country.Text</option>
+        }
+    </select>
+
+    <button type="submit">Sign Up</button>
+</form>
